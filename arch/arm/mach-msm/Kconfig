@@ -1888,7 +1888,7 @@ config MSM_DEVFREQ_CPUBW
 
 config CPU_VOLTAGE_TABLE
 	bool "Enable CPU Voltage Table via sysfs for adjustements"
-	default y
+	default n
 	help
 	  DTS based kernel User Votlage Control
 
