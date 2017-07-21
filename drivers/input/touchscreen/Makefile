@@ -88,3 +88,4 @@ endif
 obj-$(CONFIG_TOUCHSCREEN_GT9XX)		+= gt9xx/
 obj-$(CONFIG_TOUCHSCREEN_SYNAPTICS_G3) 	+= g3/
 obj-y		+= state_notifier.o
+obj-y += touchboost.o
