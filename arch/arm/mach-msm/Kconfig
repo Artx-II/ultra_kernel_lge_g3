@@ -3053,6 +3053,7 @@ config KRAIT_REGULATOR
 	 this option to support such configurations.
 
 config PVS_LEVEL_INTERFACE
+        default y
 	bool "Expose PVS level information in SYSFS"
 	help
 	 Allow PVS level to be shown
