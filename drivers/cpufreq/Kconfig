@@ -367,6 +367,11 @@ config CPU_FREQ_DEFAULT_GOV_SLP
 	help
 	  Use the CPUFreq governor 'slp' as default.
 
+config CPU_FREQ_DEFAULT_GOV_INTERACTIVEX
+		bool "interactivex"
+		select CPU_FREQ_GOV_INTERACTIVEX
+		help
+
 endchoice
 
 config CPU_FREQ_GOV_PERFORMANCE
@@ -888,6 +893,10 @@ config CPU_FREQ_GOV_UMBRELLA_CORE
 
 	  The governor is based on interactive to provide a resident controller
 	  which interprets unnecessary battery drain as evil.
+
+config CPU_FREQ_GOV_INTERACTIVEX
+        default n
+		tristate "'interactivex' cpufreq policy governor"
 
 menu "x86 CPU frequency scaling drivers"
 depends on X86

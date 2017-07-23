@@ -52,6 +52,7 @@ obj-$(CONFIG_CPU_FREQ_GOV_BOOSTACTIVE)	+= cpufreq_boostactive.o
 obj-$(CONFIG_CPU_FREQ_GOV_ABYSSPLUG)		+= cpufreq_abyssplugv2.o
 obj-$(CONFIG_CPU_FREQ_GOV_SLP)			+= cpufreq_slp.o
 obj-$(CONFIG_CPU_FREQ_GOV_UMBRELLA_CORE)+= cpufreq_umbrella_core.o
+obj-$(CONFIG_CPU_FREQ_GOV_INTERACTIVEX)	+= cpufreq_interactivex.o
 
 # CPUfreq cross-arch helpers
 obj-$(CONFIG_CPU_FREQ_TABLE)		+= freq_table.o

@@ -95,3 +95,10 @@ config MSM_SLEEPER
 	help
 	  Limit max frequency while screen is off 
 
+config ASMP
+ 	bool "Multi-core automatic hotplug support"
+ 	depends on SMP
+ 	default y
+ 	help
+ 	Automatically hotplugs the multiple cpu cores on and off
+ 	based on cpu load and suspend stat
