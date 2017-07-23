@@ -89,3 +89,9 @@ config THUNDERPLUG_CONTROL
        This driver uses powersuspend to take down the cpu cores
        on a octa core device. Tuned to work on a quad core device.
 
+config MSM_SLEEPER
+	bool "Limit max frequency while screen is off"
+	default y
+	help
+	  Limit max frequency while screen is off 
+
