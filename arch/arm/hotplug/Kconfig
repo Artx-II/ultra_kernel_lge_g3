@@ -91,7 +91,7 @@ config THUNDERPLUG_CONTROL
 
 config MSM_SLEEPER
 	bool "Limit max frequency while screen is off"
-	default y
+	default n
 	help
 	  Limit max frequency while screen is off 
 
