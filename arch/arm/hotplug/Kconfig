@@ -102,3 +102,4 @@ config ASMP
  	help
  	Automatically hotplugs the multiple cpu cores on and off
  	based on cpu load and suspend stat
+
