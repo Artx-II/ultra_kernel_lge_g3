@@ -72,7 +72,7 @@
 
 int current_charge_level;
 
-int force_fast_charge;
+int force_fast_charge = 2;
 
 /* sysfs interface for "force_fast_charge" */
 static ssize_t force_fast_charge_show(struct kobject *kobj, struct kobj_attribute *attr, char *buf)
@@ -98,7 +98,7 @@ static ssize_t force_fast_charge_store(struct kobject *kobj, struct kobj_attribu
 
 static struct kobj_attribute force_fast_charge_attribute =
 __ATTR(force_fast_charge, 0666, force_fast_charge_show, force_fast_charge_store);
-int use_mtp_during_fast_charge;
+int use_mtp_during_fast_charge = 1;
 
 /* sysfs interface for "use_mtp_during_fast_charge" */
 static ssize_t use_mtp_during_fast_charge_show(struct kobject *kobj,
@@ -165,7 +165,7 @@ static struct kobj_attribute screen_on_current_limit_attribute =
 
 /* sysfs interface for "ac_charge_level" */
 
-int ac_charge_level;
+int ac_charge_level = 2400;
 
 static ssize_t ac_charge_level_show(struct kobject *kobj, struct kobj_attribute *attr, char *buf)
 {
@@ -220,7 +220,7 @@ __ATTR(ac_charge_level, 0666, ac_charge_level_show, ac_charge_level_store);
 
 /* sysfs interface for "usb_charge_level" */
 
-int usb_charge_level;
+int usb_charge_level = 1500;
 
 static ssize_t usb_charge_level_show(struct kobject *kobj, struct kobj_attribute *attr, char *buf)
 {
@@ -388,13 +388,13 @@ int force_fast_charge_init(void)
 {
 	int force_fast_charge_retval;
 
-	force_fast_charge     = FAST_CHARGE_DISABLED; /* Forced fast charge disabled by default */
+	force_fast_charge     = FAST_CHARGE_FORCE_CUSTOM_MA; /* Forced fast charge disabled by default */
 	/* Use MTP during fast charge, enabled by default */
-	use_mtp_during_fast_charge = USE_MTP_DURING_FAST_CHARGE_DISABLED;
+	use_mtp_during_fast_charge = USE_MTP_DURING_FAST_CHARGE_ENABLED;
 	/* Use Samsung Screen ON current limit while charging, enabled by default */
 	screen_on_current_limit = SCREEN_ON_CURRENT_LIMIT_DISABLED;
-	ac_charge_level       = AC_CHARGE_1500;	      /* Default AC charge level to 1500mA/h    */
-	usb_charge_level      = USB_CHARGE_500;	      /* Default USB charge level to 500mA/h    */
+	ac_charge_level       = AC_CHARGE_2400;	      /* Default AC charge level to 1500mA/h    */
+	usb_charge_level      = USB_CHARGE_1500;      /* Default USB charge level to 500mA/h    */
 	current_charge_level  = NOT_FAST_CHARGING;    /* Default to not fast charging           */
 	failsafe              = FAIL_SAFE_ENABLED;    /* Allow only values in list by default   */
 
