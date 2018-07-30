@@ -86,10 +86,10 @@ static int cur_main_lcd_level = LM3697_MAX_BRIGHTNESS;
 static bool lm3697_backlight_control = true;
 module_param(lm3697_backlight_control, bool, 0664);
 
-static int lm3697_min_backlight = 0;
+static int lm3697_min_backlight = -100;
 module_param(lm3697_min_backlight, int, 0664);
 
-static int lm3697_max_backlight = 1892;
+static int lm3697_max_backlight = 2047;
 module_param(lm3697_max_backlight, int, 0664);
 
 static int current_setting = 20;
@@ -239,18 +239,18 @@ void lm3697_lcd_backlight_set_level(int level)
 		cal_level = level;
 
 	if (lm3697_backlight_control) {
-		if (lm3697_min_backlight < 2)
-			lm3697_min_backlight = 2;
+		if (lm3697_min_backlight < -100)
+			lm3697_min_backlight = -100;
 
-		if (lm3697_min_backlight > 2) {
+		if (lm3697_min_backlight > -100) {
 			if (cal_level < lm3697_min_backlight)
 				cal_level = lm3697_min_backlight;
 		}
 
-		if (lm3697_max_backlight > 1892)
-			lm3697_max_backlight = 1892;
+		if (lm3697_max_backlight > 2047)
+			lm3697_max_backlight = 2047;
 
-		if (lm3697_max_backlight < 1892) {
+		if (lm3697_max_backlight < 2047) {
 			if (cal_level > lm3697_max_backlight)
 				cal_level = lm3697_max_backlight;
 		}
